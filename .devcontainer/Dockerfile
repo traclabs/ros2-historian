@@ -1,8 +1,8 @@
 #--------------------------------------------------------------------
 # VS Code Development Container for ROS 2 Historian (Node 22 + ROS 2)
 #--------------------------------------------------------------------
-# Base: official ROS 2 Iron headless image (Ubuntu 22.04)
-FROM ros:iron-ros-base
+# Base: official ROS 2 Humble headless image (Ubuntu 22.04)
+FROM ros:humble-ros-base
 
 ARG NODE_VERSION=22
 
@@ -25,7 +25,7 @@ WORKDIR /workspace/ros2-historian
 # -------------------------------------------------------------------
 # Source ROS 2 environment for every shell
 # -------------------------------------------------------------------
-RUN echo "source /opt/ros/iron/setup.bash" >> /etc/bash.bashrc
+RUN echo "source /opt/ros/humble/setup.bash" >> /etc/bash.bashrc
 
 # -------------------------------------------------------------------
 # Expose historian port (adjustable via PORT env)

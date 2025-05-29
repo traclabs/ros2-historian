@@ -17,6 +17,6 @@
   },
   
   "forwardPorts": [8080],
-  "postCreateCommand": "npm install",
+  "postCreateCommand": "bash -c 'source /opt/ros/iron/setup.bash && npm install'",
   "remoteUser": "root"
 }
