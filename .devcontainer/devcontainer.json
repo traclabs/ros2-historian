@@ -1,0 +1,22 @@
+{
+  "name": "ROS 2 Historian Dev",
+  "dockerFile": "Dockerfile",
+  "runArgs": [
+    "--init",
+    "--network",
+    "host",
+    "-e",
+    "DISPLAY"
+  ],
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+      }
+    }
+  },
+  
+  "forwardPorts": [8080],
+  "postCreateCommand": "npm install",
+  "remoteUser": "root"
+}

@@ -1,0 +1,33 @@
+{
+  "name": "ros2-historian",
+  "version": "0.1.0",
+  "description": "Read-only ROS 2 historian serving MCAP data to Open MCT with sub-second latency.",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon --signal SIGTERM src/server.js",
+    "clean": "rm -rf node_modules package-lock.json"
+  },
+  "dependencies": {
+    "@mcap/core": "2.1.6",
+    "@mcap/nodejs": "1.0.2",
+    "hyper-express": "6.17.3",
+    "rclnodejs": "1.1.0",
+    "lru-cache": "11.1.0"
+  },
+  "devDependencies": {
+    "eslint": "9.27.0",
+    "nodemon": "3.1.10",
+    "prettier": "3.5.3"
+  },
+  "keywords": [
+    "ROS 2",
+    "MCAP",
+    "Open MCT",
+    "historian"
+  ],
+  "license": "MIT"
+}
