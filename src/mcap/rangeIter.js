@@ -1,12 +1,11 @@
-import { open, close } from '@mcap/nodejs';
-import LRU from 'lru-cache';
-
+import pkg from '@mcap/nodejs';
+import { LRUCache } from 'lru-cache';
 /**
  * LRU cache of open readers to minimise disk ops.
  * Key: absolute file path
  * Value: reader instance with .close()
  */
-const readerCache = new LRU({
+const readerCache = new LRUCache({
   max: 32,
   dispose: (_value, key) => {
     // Close reader when evicted.
@@ -26,7 +25,7 @@ const readerCache = new LRU({
 export async function getReader(path) {
   let reader = readerCache.get(path);
   if (!reader) {
-    reader = await open(path, { lazy: true });
+    reader = await pkg.open(path, { lazy: true });
     readerCache.set(path, reader);
   }
   return reader;
